@@ -1,6 +1,9 @@
 {% include "hackazon_app/layout.html" %}
 
 <div class="content">
+    <div class ='category'>
+        <h1>Office</h1>
+    </div>
     {% for item in office_list %}
         <div class="cards">{{ item.product }}: ${{ item.price }} <img class="thumbnail" src="{{item.img}}">
             <button class="addto" id ="{{ item.product }}" type="button" onclick="addItem()">Add to Cart</button>
