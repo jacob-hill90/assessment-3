@@ -105,10 +105,14 @@
 .about{
     margin: auto;
     margin-top: 100px;
-    height: 80px;
-    width: 400px;
+    height: 16em;
+    width: 40em;
+    border-radius: .8em;
     background-color: gray;
     text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .greeting{
