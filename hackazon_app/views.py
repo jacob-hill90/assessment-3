@@ -1,9 +1,13 @@
+from http.client import HTTPResponse
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
-from .models import office_list, kitchen_list, garage_list, livingroom_list, patio_list, featured_list
+from django.http import  HttpResponseRedirect, JsonResponse, HttpResponse
+from .models import office_list, kitchen_list, garage_list, livingroom_list, patio_list, featured_list, Item, Cart, CartItem
 import requests, os, json
 from requests_oauthlib import OAuth1
 from dotenv import load_dotenv
+from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
+
 
 
 def index(request):
@@ -12,10 +16,6 @@ def index(request):
 
 def about(request):
     response = render(request, 'hackazon_app/about.html')
-    return response
-
-def cart(request):
-    response = render(request, 'hackazon_app/cart.html')
     return response
 
 def search(request):
@@ -53,3 +53,54 @@ def products(request):
     JSON_API_response = json.loads(API_response.content)
     image_url = JSON_API_response['icon']['preview_url']
     return JsonResponse({'url': image_url })
+
+def cart(request):
+    cart_id = 1                             
+    items = Item.objects.all()      
+    cart = Cart.objects.get(id=cart_id)
+
+    data  = []
+
+    for item in items:
+        item_dict = {}
+        item_dict['item'] = item
+
+        try:
+            c_item = CartItem.objects.get(cart = cart, item = item)
+            item_dict['quantity'] = c_item.quantity
+        except:
+            item_dict['quantity'] = 0
+
+        data.append(item_dict)
+
+        print(item_dict)
+    
+    return render(request, 'hackazon_app/cart.html', {'data': data} )
+
+@csrf_exempt
+def cart_item(request):
+    cart_id = 1
+    
+    body = json.loads(request.body) 
+    item_id = body['item_id']
+
+    cart = Cart.objects.get(id = cart_id)
+    item = Item.objects.get(id = item_id)
+
+    try:
+        c_item = CartItem.objects.get(cart = cart, item = item)
+        c_item.quantity += 1
+        c_item.full_clean()
+        c_item.save()
+
+    except:
+        c_item = CartItem(cart = cart, item = item)
+        c_item.full_clean()
+        c_item.save()
+
+    return  JsonResponse({'item_id': c_item.item.id, 'item_quantity': c_item.quantity})
+
+
+
+
+    

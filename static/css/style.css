@@ -159,3 +159,7 @@
     top: 20%;
     text-decoration: underline;
 }
+
+ul{
+    list-style: none;
+}

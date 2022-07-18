@@ -1,0 +1,122 @@
+[
+    {
+      "model": "hackazon_app.Item",
+      "pk": 1,
+      "fields": {
+        "name": "Stapler",
+        "price": 12.19
+      }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 2,
+        "fields": {
+            "name": "Label Maker",
+            "price": 35.59
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 3,
+        "fields": {
+            "name": "Printer",
+            "price": 119.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 4,
+        "fields": {
+            "name": "Knife",
+            "price": 14.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 5,
+        "fields": {
+            "name": "Cutting Board",
+            "price": 13.59
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 6,
+        "fields": {
+            "name": "Toaster",
+            "price": 45.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 7,
+        "fields": {
+            "name": "Wrench",
+            "price": 9.19
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 8,
+        "fields": {
+            "name": "Paint",
+            "price": 23.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 9,
+        "fields": {
+            "name": "Vice",
+            "price": 89.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 10,
+        "fields": {
+            "name": "Lamp",
+            "price": 23.50
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 11,
+        "fields": {
+            "name": "Pillow",
+            "price": 13.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 12,
+        "fields": {
+            "name": "Rug",
+            "price": 30.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 13,
+        "fields": {
+            "name": "Fountain",
+            "price": 122.19
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 14,
+        "fields": {
+            "name": "Plant",
+            "price": 25.99
+        }
+    },
+    {
+        "model": "hackazon_app.Item",
+        "pk": 15,
+        "fields": {
+            "name": "Bird Feeder",
+            "price": 20.99
+        }
+    }
+]
